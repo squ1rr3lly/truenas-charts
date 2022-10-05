@@ -288,6 +288,7 @@ questions:
                   hidden: true
                   editable: false
                   default: "/var/lib/mysql"
+
               - variable: hostPathEnabled
                 label: "Enable Host Path for MySQL Data Volume"
                 schema:
@@ -333,6 +334,44 @@ questions:
                   subquestions:
                     - variable: hostPath
                       label: "Host Path for MySQL Backup Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: mysql-restore
+          label: "MySQL Restore File Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "MySQL Data Restore Volume Name"
+                schema:
+                  type: string
+                  hidden: true
+                  $ref:
+                    - "normalize/ixVolume"
+                  default: "ix-mysql_restore"
+                  show_if: [ [ "hostPathEnabled", "=", false ] ]
+                  editable: false
+
+              - variable: mountPath
+                label: "MySQL Data Restore Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/docker-entrypoint-initdb.d"
+
+              - variable: hostPathEnabled
+                label: "Enable Host Path for MySQL Data Restore Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for MySQL Data Restore Volume"
                       schema:
                         type: hostpath
                         required: true

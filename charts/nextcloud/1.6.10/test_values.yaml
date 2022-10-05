@@ -42,6 +42,9 @@ mysql:
   dataVolume:
     datasetName: ix-mysql_data
     mountPath: /var/lib/mysql
+  restoreVolume:
+    datasetName: ix-mysql_restore
+    mountPath: /docker-entrypoint-initdb.d
   username: db_user
   password: db_password
   root_password: iamgROOT
