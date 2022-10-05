@@ -26,8 +26,9 @@ Retrieve mysql credentials for environment variables configuration
 */}}
 {{- define "mysql.envVariableConfiguration" -}}
 {{ $envList := list }}
-{{ $envList = mustAppend $envList (dict "name" "MYSQL_USER" "valueFromSecret" true "secretName" "db-details" "secretKey" "db-user") }}
-{{ $envList = mustAppend $envList (dict "name" "MYSQL_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db-password") }}
+{{ $envList = mustAppend $envList (dict "name" "MYSQL_USER" "valueFromSecret" true "secretName" "db-details" "secretKey" "db_user") }}
+{{ $envList = mustAppend $envList (dict "name" "MYSQL_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db_password") }}
+{{ $envList = mustAppend $envList (dict "name" "MYSQL_ROOT_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db_root_password") }}
 {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) }}
 {{- end -}}
 

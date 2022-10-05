@@ -224,6 +224,40 @@ questions:
                   type: hostpath
                   required: true
 
+  - variable: mysql
+    description: "MySQL configuration details"
+    label: "MySQL Configuration"
+    group: "MySQL Configuration"
+    schema:
+      type: dict
+      required: true
+      additional_attrs: true
+      attrs:
+        - variable: username
+          label: "Username"
+          description: "Name of the MySQL user"
+          schema:
+            type: string
+            default: "db_admin"
+            required: true
+        - variable: password
+          label: "Password"
+          description: "Password for the MySQL user"
+          schema:
+            type: string
+            private: true
+            default: "db_password"
+            required: true
+        - variable: root_password
+          label: "Root Password"
+          description: "Password for the MySQL root user"
+          schema:
+            type: string
+            private: true
+            default: "iamgROOT"
+            required: true
+
+
   - variable: mysqlAppVolumeMounts
     label: "MySQL Storage"
     group: "Storage"

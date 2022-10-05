@@ -32,12 +32,19 @@ mysqlAppVolumeMounts:
     emptyDir: true
     mountPath: /var/lib/mysql/data
 mysql:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mysql
+    tag: 8.0.30
   backupVolume:
     datasetName: ix-mysql_backups
     mountPath: /mysql_backups
   dataVolume:
     datasetName: ix-mysql_data
     mountPath: /var/lib/mysql/data
+  username: db_user
+  password: db_password
+  root_password: iamgROOT
 service:
   nodePort: 31000
 updateStrategy: Recreate
