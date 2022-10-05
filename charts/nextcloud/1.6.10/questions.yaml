@@ -287,7 +287,7 @@ questions:
                   type: path
                   hidden: true
                   editable: false
-                  default: "/var/lib/mysql/data"
+                  default: "/var/lib/mysql"
               - variable: hostPathEnabled
                 label: "Enable Host Path for MySQL Data Volume"
                 schema:
