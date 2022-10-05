@@ -7,8 +7,8 @@ groups:
     description: "Configure Storage for Nextcloud"
   - name: "Container Configuration"
     description: "Configure nextcloud container parameters"
-  - name: "Postgresql Configuration"
-    description: "Configure Postgresql for nextcloud"
+  - name: "MySQL Configuration"
+    description: "Configure MySQL for nextcloud"
   - name: "CronJob configuration"
     description: "Configure CronJob for nextcloud"
   - name: "Scaling/Upgrade Policy"
@@ -224,81 +224,81 @@ questions:
                   type: hostpath
                   required: true
 
-  - variable: postgresAppVolumeMounts
-    label: "Postgres Storage"
+  - variable: mysqlAppVolumeMounts
+    label: "MySQL Storage"
     group: "Storage"
     schema:
       type: dict
       attrs:
-        - variable: postgres-data
-          label: "Postgres Data Volume"
+        - variable: mysql-data
+          label: "MySQL Data Volume"
           schema:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Postgres Data Volume Name"
+                label: "MySQL Data Volume Name"
                 schema:
                   type: string
                   hidden: true
                   $ref:
                     - "normalize/ixVolume"
-                  default: "ix-postgres_data"
+                  default: "ix-mysql_data"
                   show_if: [["hostPathEnabled", "=", false]]
                   editable: false
 
               - variable: mountPath
-                label: "Postgresql Data Mount Path"
+                label: "MySQL Data Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
                   hidden: true
                   editable: false
-                  default: "/var/lib/postgresql/data"
+                  default: "/var/lib/mysql/data"
               - variable: hostPathEnabled
-                label: "Enable Host Path for Postgres Data Volume"
+                label: "Enable Host Path for MySQL Data Volume"
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: hostPath
-                      label: "Host Path for Postgres Data Volume"
+                      label: "Host Path for MySQL Data Volume"
                       schema:
                         type: hostpath
                         required: true
 
-        - variable: postgres-backup
-          label: "Postgres Backup Volume"
+        - variable: mysql-backup
+          label: "MySQL Backup Volume"
           schema:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Postgres Backup Volume Name"
+                label: "MySQL Backup Volume Name"
                 schema:
                   type: string
                   hidden: true
                   $ref:
                     - "normalize/ixVolume"
-                  default: "ix-postgres_backups"
+                  default: "ix-mysql_backups"
                   show_if: [["hostPathEnabled", "=", false]]
                   editable: false
               - variable: mountPath
-                label: "Postgresql Backup Mount Path"
+                label: "MySQL Backup Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
                   hidden: true
                   editable: false
-                  default: "/postgres_backups"
+                  default: "/mysql_backups"
               - variable: hostPathEnabled
-                label: "Enable Host Path for Postgres Backup Volume"
+                label: "Enable Host Path for MySQL Backup Volume"
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: hostPath
-                      label: "Host Path for Postgres Backup Volume"
+                      label: "Host Path for MySQL Backup Volume"
                       schema:
                         type: hostpath
                         required: true

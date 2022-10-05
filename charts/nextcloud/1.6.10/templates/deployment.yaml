@@ -1,14 +1,14 @@
 {{ include "common.storage.hostPathValidate" .Values }}
-{{ $postgres_values := (. | mustDeepCopy) }}
-{{ $_ := set $postgres_values "common" (dict "nameSuffix" "postgres") }}
+{{ $mysql_values := (. | mustDeepCopy) }}
+{{ $_ := set $mysql_values "common" (dict "nameSuffix" "mysql") }}
 {{ include "common.deployment.common_config" . | nindent 0 }}
 spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
   template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:
       initContainers:
-        - name: init-postgresdb
-          image: {{ template "postgres.imageName" . }}
-          command: ['sh', '-c', "until pg_isready -h {{ template "common.names.fullname" $postgres_values }}; do echo waiting for postgres; sleep 2; done"]
+        - name: init-mysqldb
+          image: {{ template "mysql.imageName" . }}
+          command: ['sh', '-c', 'until mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e "SELECT 1" > /dev/null 2>&1; do echo waiting for mysql; sleep 2; done']
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
       {{ if eq (include "nginx.certAvailable" .) "true" }}
@@ -30,11 +30,11 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       - name: {{ .Chart.Name }}
           {{ include "common.resources.limitation" . | nindent 8 }}
         {{ include "common.containers.imageConfig" .Values.image | nindent 8 }}
-        env: {{ include "postgres.envVariableConfiguration" $postgres_values | nindent 10 }}
+        env: {{ include "mysql.envVariableConfiguration" $mysql_values | nindent 10 }}
         {{ $secretName := (include "common.names.fullname" .) }}
         {{ $envList := (default list .Values.environmentVariables) }}
-        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_HOST" "value" (printf "%s:5432" (include "common.names.fullname" $postgres_values))) }}
-        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_DB" "value" (include "postgres.DatabaseName" .)) }}
+        {{ $envList = mustAppend $envList (dict "name" "MYSQL_HOST" "value" (printf "%s:3306" (include "common.names.fullname" $mysql_values))) }}
+        {{ $envList = mustAppend $envList (dict "name" "MYSQL_DATABASE" "value" (include "mysql.DatabaseName" .)) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_DATA_DIR" "value" .Values.nextcloud.datadir) }}
         {{ if eq (include "nginx.certAvailable" .) "true" }}
         {{ $envList = mustAppend $envList (dict "name" "APACHE_DISABLE_REWRITE_IP" "value" "1") }}

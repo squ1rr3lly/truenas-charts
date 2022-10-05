@@ -25,16 +25,16 @@ nginx:
     repository: nginx
     tag: 1.21.3
 mysqlAppVolumeMounts:
-  postgres-backup:
+  mysql-backup:
     emptyDir: true
     mountPath: /mysql_backups
-  postgres-data:
+  mysql-data:
     emptyDir: true
     mountPath: /var/lib/mysql/data
 mysql:
   backupVolume:
     datasetName: ix-mysql_backups
-    mountPath: /postgres_backups
+    mountPath: /mysql_backups
   dataVolume:
     datasetName: ix-mysql_data
     mountPath: /var/lib/mysql/data
