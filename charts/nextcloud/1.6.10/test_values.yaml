@@ -30,7 +30,7 @@ mysqlAppVolumeMounts:
     mountPath: /mysql_backups
   mysql-data:
     emptyDir: true
-    mountPath: /var/lib/mysql/data
+    mountPath: /var/lib/mysql
 mysql:
   image:
     pullPolicy: IfNotPresent
@@ -41,7 +41,7 @@ mysql:
     mountPath: /mysql_backups
   dataVolume:
     datasetName: ix-mysql_data
-    mountPath: /var/lib/mysql/data
+    mountPath: /var/lib/mysql
   username: db_user
   password: db_password
   root_password: iamgROOT
