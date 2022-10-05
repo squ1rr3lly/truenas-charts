@@ -8,6 +8,9 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       initContainers:
         - name: init-mysqldb
           image: {{ template "mysql.imageName" . }}
+          env:
+            - name: "MYSQL_HOST"
+              value: {{ (printf "%s:3306" (include "common.names.fullname" $mysql_values)) }}
           command: ['sh', '-c', 'until mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e "SHOW DATABASES;" > /dev/null 2>&1; do echo waiting for mysql; sleep 2; done']
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
