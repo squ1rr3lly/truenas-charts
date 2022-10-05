@@ -8,7 +8,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       initContainers:
         - name: init-mysqldb
           image: {{ template "mysql.imageName" . }}
-          command: ['sh', '-c', 'until mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e "SELECT 1" > /dev/null 2>&1; do echo waiting for mysql; sleep 2; done']
+          command: ['sh', '-c', 'until mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e "SHOW DATABASES;" > /dev/null 2>&1; do echo waiting for mysql; sleep 2; done']
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
       {{ if eq (include "nginx.certAvailable" .) "true" }}
@@ -34,7 +34,6 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         {{ $secretName := (include "common.names.fullname" .) }}
         {{ $envList := (default list .Values.environmentVariables) }}
         {{ $envList = mustAppend $envList (dict "name" "MYSQL_HOST" "value" (printf "%s:3306" (include "common.names.fullname" $mysql_values))) }}
-        {{ $envList = mustAppend $envList (dict "name" "MYSQL_DATABASE" "value" (include "mysql.DatabaseName" .)) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_DATA_DIR" "value" .Values.nextcloud.datadir) }}
         {{ if eq (include "nginx.certAvailable" .) "true" }}
         {{ $envList = mustAppend $envList (dict "name" "APACHE_DISABLE_REWRITE_IP" "value" "1") }}

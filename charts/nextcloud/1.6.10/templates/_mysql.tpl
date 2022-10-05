@@ -29,6 +29,7 @@ Retrieve mysql credentials for environment variables configuration
 {{ $envList = mustAppend $envList (dict "name" "MYSQL_USER" "valueFromSecret" true "secretName" "db-details" "secretKey" "db_user") }}
 {{ $envList = mustAppend $envList (dict "name" "MYSQL_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db_password") }}
 {{ $envList = mustAppend $envList (dict "name" "MYSQL_ROOT_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db_root_password") }}
+{{ $envList = mustAppend $envList (dict "name" "MYSQL_DATABASE" "value" "nextcloud") }}
 {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) }}
 {{- end -}}
 
