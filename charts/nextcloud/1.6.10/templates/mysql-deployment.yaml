@@ -8,6 +8,7 @@ spec: {{ include "common.deployment.common_spec" $values | nindent 2 }}
       - name: {{ .Chart.Name }}-mysql
         image: {{ template "mysql.imageName" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
         env: {{ include "mysql.envVariableConfiguration" $values | nindent 10 }}
         volumeMounts: {{ include "mysql.volumeMountsConfiguration" $values | nindent 10 }}
         ports:
