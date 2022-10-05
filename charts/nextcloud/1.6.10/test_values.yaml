@@ -24,20 +24,20 @@ nginx:
     pullPolicy: IfNotPresent
     repository: nginx
     tag: 1.21.3
-postgresAppVolumeMounts:
+mysqlAppVolumeMounts:
   postgres-backup:
     emptyDir: true
-    mountPath: /postgres_backups
+    mountPath: /mysql_backups
   postgres-data:
     emptyDir: true
-    mountPath: /var/lib/postgresql/data
-postgresql:
+    mountPath: /var/lib/mysql/data
+mysql:
   backupVolume:
-    datasetName: ix-postgres_backups
+    datasetName: ix-mysql_backups
     mountPath: /postgres_backups
   dataVolume:
-    datasetName: ix-postgres_data
-    mountPath: /var/lib/postgresql/data
+    datasetName: ix-mysql_data
+    mountPath: /var/lib/mysql/data
 service:
   nodePort: 31000
 updateStrategy: Recreate
