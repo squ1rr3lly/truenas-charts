@@ -9,7 +9,7 @@
                 "finantial"
             ],
             "app_readme": "<h1>storj</h1>\n<p><a href=\"https://www.storj.io/\">storj</a> share your extra storage and earn money</p>",
-            "location": "/__w/charts/charts/charts/storj",
+            "location": "/__w/truenas-charts/truenas-charts/charts/storj",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.5",
@@ -25,7 +25,7 @@
                 "management"
             ],
             "app_readme": "<p>DiskOver App for TrueNAS SCALE</p>",
-            "location": "/__w/charts/charts/charts/diskoverdata",
+            "location": "/__w/truenas-charts/truenas-charts/charts/diskoverdata",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.4",
@@ -39,7 +39,7 @@
                 "productivity"
             ],
             "app_readme": "<h1>nextcloud</h1>\n<p><a href=\"https://nextcloud.com/\">nextcloud</a> is a file sharing server that puts the control and security of your own data back into your hands.</p>",
-            "location": "/__w/charts/charts/charts/nextcloud",
+            "location": "/__w/truenas-charts/truenas-charts/charts/nextcloud",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.6.15",
@@ -53,7 +53,7 @@
                 "reporting"
             ],
             "app_readme": "<p><a href=\"https://www.netdata.cloud/\">Netdata</a> is a fast, easy monitoring and troubleshooting system.</p>",
-            "location": "/__w/charts/charts/charts/netdata",
+            "location": "/__w/truenas-charts/truenas-charts/charts/netdata",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.13",
@@ -67,7 +67,7 @@
                 "home-automation"
             ],
             "app_readme": "<p>home-assistant App for TrueNAS SCALE</p>",
-            "location": "/__w/charts/charts/charts/home-assistant",
+            "location": "/__w/truenas-charts/truenas-charts/charts/home-assistant",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.57",
@@ -82,7 +82,7 @@
                 "S3"
             ],
             "app_readme": "<p><a href=\"https://min.io\">MinIO</a> is a High Performance Object Storage released under Apache License v2.0. It is API compatible with Amazon S3 cloud storage service. Use MinIO to build high performance infrastructure for machine learning, analytics and application data workloads.</p>\n<p><strong>NOTE</strong>\n- On installation, minIO data directory's ownership will be updated to minio:minio.\n- For existing installations that are exhibiting the upgrade to &gt;=1.5.0, the minIO data directory's ownership will be migrated to minio:minio.</p>",
-            "location": "/__w/charts/charts/charts/minio",
+            "location": "/__w/truenas-charts/truenas-charts/charts/minio",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.7.4",
@@ -97,7 +97,7 @@
                 "crypto"
             ],
             "app_readme": "<h1>Machinaris</h1>\n<p><a href=\"https://github.com/guydavis/machinaris\">MACHINARIS</a> is an easy-to-use WebUI for Chia plotting and farming. This includes Chia, Plotman, MadMax, Chiadog under main node along with various coin-forks which can be enabled conditionally.</p>\n<p>Coins include Cactus, Chives, CrypoDoge, Flax, Flora, HDDCoin, Maize, NChain, StaiCoin, Stor, BTCGreen and Shibgreen.</p>\n<h1>Machinaris Defaults</h1>\n<p>This section contains information about the defaults of Machinaris application for visibility.</p>\n<h2>1. Environment Variables</h2>\n<p>Following are the default environment variables for Machinaris main node and the coin forks.</p>\n<h3>Machinaris Node</h3>\n<p>Machinaris main node comes with following default environment variables:</p>\n<p>| Variable         | Default Value                                         | Description           |\n| ---------------- | ----------------------------------------------------- | --------------------- |\n|   TZ             |  Same as to User selected Timezone                    | Timezone information  |\n|   worker_address |  Same as to LAN IP address                            | Worker Address        |\n|   blockchains    |  chia                                                 | Block Chain            |\n|   plots_dir      |  Same as to User selected plots volume                | Plots Directory       |\n|   mode           |  fullnode                                             | Machinaris Mode       |</p>\n<p>These values can be overridden while configuring Machinaris application.</p>\n<h3>Coin Forks</h3>\n<p>Coin forks also come with a set of default environment variables:</p>\n<p>| Variable         | Default Value                                         | Description           |\n| ---------------- | ----------------------------------------------------- | --------------------- |\n|   TZ             |  Same as to User selected Timezone                    | Timezone information  |\n|   worker_address |  Same as to LAN IP address                            | Worker Address        |\n|   blockchains    |  chia                                                 | BlockChain            |\n|   plots_dir      |  Same as to User selected plots volume                | Plots Directory       |\n|   mode           |  fullnode                                             | Machinaris Mode       |\n|   controller_host|  Same as to LAN IP address                            | Controller Host       |\n|   worker_api_port|  Coin's Workload REST API Port                        | Worker API Port       |</p>\n<p>These defaults can be overridden for each coin fork when you enable them through Machinaris application configuration.</p>\n<h2>2. Volumes</h2>\n<p>Before getting to defaults, please take the following note:</p>\n<blockquote>\n<p>If Custom Host Path is not enabled for a Volume Configuration then, application will use ix-volumes and create datasets inside for Host Path by default.</p>\n<p>The path for ix-volumes has the following composition:\n<code>/mnt/&lt;pool_name&gt;/ix-applications/releases/&lt;application_name&gt;/volumes/ix-volumes/</code>\nAnd with the dataset inside, would be like:\n<code>/mnt/&lt;pool_name&gt;/ix-applications/releases/&lt;application_name&gt;/volumes/ix-volumes/&gt;&lt;dataset_name&gt;</code></p>\n<p>Following are the Volume Configurations for Machinaris main node &amp; the coin-forks by default:</p>\n</blockquote>\n<p>| Volume                 | hostPath (default value)                              | mountPath in container  |   Description                                   |\n| ---------------------- | ----------------------------------------------------- | ----------------------- | ----------------------------------------------- |\n|   <code>config</code>             |  <code>&lt;ix-volumes&gt;/config</code>                                | <code>/root/.chia</code>           | Chia config for main node                       |\n|   <code>plots</code>              |  <code>&lt;ix-volumes&gt;/plots</code>                                 | <code>/plots</code>                | Plots volume for main node &amp; coin forks         |\n|   <code>plotting</code>           |  <code>&lt;ix-volumes&gt;/plotting</code>                              | <code>/plotting</code>             | Plotting temp volume for main node &amp; coin forks |\n|   <code>&lt;coinName&gt;-config</code>  |  <code>&lt;ix-volumes&gt;/&lt;coinName&gt;-config</code>                     | <code>/root/.chia</code>           | Chia config for each of the coin-fork containers|</p>\n<p>Where <code>&lt;ix-volumes&gt;</code> is <code>/mnt/&lt;pool_name&gt;/ix-applications/releases/&lt;application_name&gt;/volumes/ix_volumes/</code> and <code>&lt;coinName&gt;</code> is one of the following: <code>[ cactus, chives, crypodoge, flax, flora, hddcoin, maize, nchain, staicoin, stor, btcgreen, shibgreen ]</code>.</p>",
-            "location": "/__w/charts/charts/charts/machinaris",
+            "location": "/__w/truenas-charts/truenas-charts/charts/machinaris",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.1.14",
@@ -111,7 +111,7 @@
                 "entertainment"
             ],
             "app_readme": "<h1>Plex</h1>\n<p>Plex chart is a chart designed to deploy plex in a TrueNAS SCALE kubernetes cluster.</p>",
-            "location": "/__w/charts/charts/charts/plex",
+            "location": "/__w/truenas-charts/truenas-charts/charts/plex",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.7.26",
@@ -126,7 +126,7 @@
                 "torrent"
             ],
             "app_readme": "<h1>Qbittorent</h1>\n<p><a href=\"https://qbittorrent.com/\">qbittorent</a> is a utorrent downloading client.</p>",
-            "location": "/__w/charts/charts/charts/qbittorent",
+            "location": "/__w/truenas-charts/truenas-charts/charts/qbittorent",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.9",
@@ -142,7 +142,7 @@
                 "productivity"
             ],
             "app_readme": "<h1>Collabora Online Development Edition</h1>\n<p>An awesome, Online Office suite image suitable for home use.\nWith the Collabora Online Development Edition (CODE) Docker Image you can host\nyour own online Office Suite at home! This Docker image is aimed at home users\nand contains the latest and greatest developments. Simply integrate it in your\npreferred File Sync and Share (FSS), to easily get your own online Office \nSuite up and running!</p>",
-            "location": "/__w/charts/charts/charts/collabora",
+            "location": "/__w/truenas-charts/truenas-charts/charts/collabora",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.2.6",
@@ -156,7 +156,7 @@
                 "storage"
             ],
             "app_readme": "<p><a href=\"https://ipfs.io\">IPFS</a> is a global, versioned, peer-to-peer filesystem. It combines good ideas from previous systems such Git, BitTorrent, Kademlia, SFS, and the Web. It is like a single bittorrent swarm, exchanging git objects. IPFS provides an interface as simple as the HTTP web, but with permanence built in. You can also mount the world at /ipfs.</p>",
-            "location": "/__w/charts/charts/charts/ipfs",
+            "location": "/__w/truenas-charts/truenas-charts/charts/ipfs",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.2.11",
@@ -171,7 +171,7 @@
                 "crypto"
             ],
             "app_readme": "<h1>Chia Network</h1>\n<p><a href=\"https://www.chia.net/\">CHIA</a> is a new blockchain and smart transaction platform that is easier to use, more efficient, and secure.</p>",
-            "location": "/__w/charts/charts/charts/chia",
+            "location": "/__w/truenas-charts/truenas-charts/charts/chia",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.3.38",
@@ -185,7 +185,7 @@
                 "generic"
             ],
             "app_readme": "<h1>iX-Chart</h1>\n<p>iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.\nIt provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.</p>",
-            "location": "/__w/charts/charts/charts/ix-chart",
+            "location": "/__w/truenas-charts/truenas-charts/charts/ix-chart",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "2212.0.1",
@@ -200,7 +200,7 @@
                 "storage"
             ],
             "app_readme": "<h1>Syncthing</h1>\n<p><a href=\"https://syncthing.net/\">syncthing</a> is a continuous file synchronization program. It synchronizes files between two or\nmore computers in real time, safely protected from prying eyes.</p>\n<blockquote>\n<p><strong>WARNING</strong> Do check out https://docs.syncthing.net/users/faq.html#what-things-are-synced to see what is synced.</p>\n</blockquote>",
-            "location": "/__w/charts/charts/charts/syncthing",
+            "location": "/__w/truenas-charts/truenas-charts/charts/syncthing",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.16",
@@ -216,7 +216,7 @@
                 "vpn"
             ],
             "app_readme": "<h1>WG-Easy</h1>\n<p><a href=\"https://github.com/WeeJeWel/wg-easy\">WG-Easy (WireGuard Easy)</a> is the easiest way to install &amp; manage WireGuard!</p>",
-            "location": "/__w/charts/charts/charts/wg-easy",
+            "location": "/__w/truenas-charts/truenas-charts/charts/wg-easy",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.0",
@@ -230,7 +230,7 @@
                 "media"
             ],
             "app_readme": "<h1>Photo Prism</h1>\n<p>PhotoPrism is a server-based application for browsing, organizing and sharing your personal photo collection.</p>",
-            "location": "/__w/charts/charts/charts/photoprism",
+            "location": "/__w/truenas-charts/truenas-charts/charts/photoprism",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.11",
@@ -244,7 +244,7 @@
                 "entertainment"
             ],
             "app_readme": "<h1>Emby Server</h1>\n<p>Emby Server is a personal media server with apps on just about every device</p>",
-            "location": "/__w/charts/charts/charts/emby",
+            "location": "/__w/truenas-charts/truenas-charts/charts/emby",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.16",
@@ -259,7 +259,7 @@
                 "dns"
             ],
             "app_readme": "<h1>Pihole</h1>\n<p>DNS and Ad-filtering for your network.</p>",
-            "location": "/__w/charts/charts/charts/pihole",
+            "location": "/__w/truenas-charts/truenas-charts/charts/pihole",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.12",
@@ -278,7 +278,7 @@
                 "finantial"
             ],
             "app_readme": "<h1>storj</h1>\n<p><a href=\"https://www.storj.io/\">storj</a> share your extra storage and earn money</p>",
-            "location": "/__w/charts/charts/test/storj",
+            "location": "/__w/truenas-charts/truenas-charts/test/storj",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.5",
@@ -294,7 +294,7 @@
                 "management"
             ],
             "app_readme": "<p>DiskOver App for TrueNAS SCALE</p>",
-            "location": "/__w/charts/charts/test/diskoverdata",
+            "location": "/__w/truenas-charts/truenas-charts/test/diskoverdata",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.4",
@@ -308,7 +308,7 @@
                 "productivity"
             ],
             "app_readme": "<h1>nextcloud</h1>\n<p><a href=\"https://nextcloud.com/\">nextcloud</a> is a file sharing server that puts the control and security of your own data back into your hands.</p>",
-            "location": "/__w/charts/charts/test/nextcloud",
+            "location": "/__w/truenas-charts/truenas-charts/test/nextcloud",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.6.15",
@@ -322,7 +322,7 @@
                 "reporting"
             ],
             "app_readme": "<p><a href=\"https://www.netdata.cloud/\">Netdata</a> is a fast, easy monitoring and troubleshooting system.</p>",
-            "location": "/__w/charts/charts/test/netdata",
+            "location": "/__w/truenas-charts/truenas-charts/test/netdata",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.13",
@@ -336,7 +336,7 @@
                 "home-automation"
             ],
             "app_readme": "<p>home-assistant App for TrueNAS SCALE</p>",
-            "location": "/__w/charts/charts/test/home-assistant",
+            "location": "/__w/truenas-charts/truenas-charts/test/home-assistant",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.57",
@@ -351,7 +351,7 @@
                 "S3"
             ],
             "app_readme": "<p><a href=\"https://min.io\">MinIO</a> is a High Performance Object Storage released under Apache License v2.0. It is API compatible with Amazon S3 cloud storage service. Use MinIO to build high performance infrastructure for machine learning, analytics and application data workloads.</p>\n<p><strong>NOTE</strong>\n- On installation, minIO data directory's ownership will be updated to minio:minio.\n- For existing installations that are exhibiting the upgrade to &gt;=1.5.0, the minIO data directory's ownership will be migrated to minio:minio.</p>",
-            "location": "/__w/charts/charts/test/minio",
+            "location": "/__w/truenas-charts/truenas-charts/test/minio",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.7.4",
@@ -366,7 +366,7 @@
                 "crypto"
             ],
             "app_readme": "<h1>Machinaris</h1>\n<p><a href=\"https://github.com/guydavis/machinaris\">MACHINARIS</a> is an easy-to-use WebUI for Chia plotting and farming. This includes Chia, Plotman, MadMax, Chiadog under main node along with various coin-forks which can be enabled conditionally.</p>\n<p>Coins include Cactus, Chives, CrypoDoge, Flax, Flora, HDDCoin, Maize, NChain, StaiCoin, Stor, BTCGreen and Shibgreen.</p>\n<h1>Machinaris Defaults</h1>\n<p>This section contains information about the defaults of Machinaris application for visibility.</p>\n<h2>1. Environment Variables</h2>\n<p>Following are the default environment variables for Machinaris main node and the coin forks.</p>\n<h3>Machinaris Node</h3>\n<p>Machinaris main node comes with following default environment variables:</p>\n<p>| Variable         | Default Value                                         | Description           |\n| ---------------- | ----------------------------------------------------- | --------------------- |\n|   TZ             |  Same as to User selected Timezone                    | Timezone information  |\n|   worker_address |  Same as to LAN IP address                            | Worker Address        |\n|   blockchains    |  chia                                                 | Block Chain            |\n|   plots_dir      |  Same as to User selected plots volume                | Plots Directory       |\n|   mode           |  fullnode                                             | Machinaris Mode       |</p>\n<p>These values can be overridden while configuring Machinaris application.</p>\n<h3>Coin Forks</h3>\n<p>Coin forks also come with a set of default environment variables:</p>\n<p>| Variable         | Default Value                                         | Description           |\n| ---------------- | ----------------------------------------------------- | --------------------- |\n|   TZ             |  Same as to User selected Timezone                    | Timezone information  |\n|   worker_address |  Same as to LAN IP address                            | Worker Address        |\n|   blockchains    |  chia                                                 | BlockChain            |\n|   plots_dir      |  Same as to User selected plots volume                | Plots Directory       |\n|   mode           |  fullnode                                             | Machinaris Mode       |\n|   controller_host|  Same as to LAN IP address                            | Controller Host       |\n|   worker_api_port|  Coin's Workload REST API Port                        | Worker API Port       |</p>\n<p>These defaults can be overridden for each coin fork when you enable them through Machinaris application configuration.</p>\n<h2>2. Volumes</h2>\n<p>Before getting to defaults, please take the following note:</p>\n<blockquote>\n<p>If Custom Host Path is not enabled for a Volume Configuration then, application will use ix-volumes and create datasets inside for Host Path by default.</p>\n<p>The path for ix-volumes has the following composition:\n<code>/mnt/&lt;pool_name&gt;/ix-applications/releases/&lt;application_name&gt;/volumes/ix-volumes/</code>\nAnd with the dataset inside, would be like:\n<code>/mnt/&lt;pool_name&gt;/ix-applications/releases/&lt;application_name&gt;/volumes/ix-volumes/&gt;&lt;dataset_name&gt;</code></p>\n<p>Following are the Volume Configurations for Machinaris main node &amp; the coin-forks by default:</p>\n</blockquote>\n<p>| Volume                 | hostPath (default value)                              | mountPath in container  |   Description                                   |\n| ---------------------- | ----------------------------------------------------- | ----------------------- | ----------------------------------------------- |\n|   <code>config</code>             |  <code>&lt;ix-volumes&gt;/config</code>                                | <code>/root/.chia</code>           | Chia config for main node                       |\n|   <code>plots</code>              |  <code>&lt;ix-volumes&gt;/plots</code>                                 | <code>/plots</code>                | Plots volume for main node &amp; coin forks         |\n|   <code>plotting</code>           |  <code>&lt;ix-volumes&gt;/plotting</code>                              | <code>/plotting</code>             | Plotting temp volume for main node &amp; coin forks |\n|   <code>&lt;coinName&gt;-config</code>  |  <code>&lt;ix-volumes&gt;/&lt;coinName&gt;-config</code>                     | <code>/root/.chia</code>           | Chia config for each of the coin-fork containers|</p>\n<p>Where <code>&lt;ix-volumes&gt;</code> is <code>/mnt/&lt;pool_name&gt;/ix-applications/releases/&lt;application_name&gt;/volumes/ix_volumes/</code> and <code>&lt;coinName&gt;</code> is one of the following: <code>[ cactus, chives, crypodoge, flax, flora, hddcoin, maize, nchain, staicoin, stor, btcgreen, shibgreen ]</code>.</p>",
-            "location": "/__w/charts/charts/test/machinaris",
+            "location": "/__w/truenas-charts/truenas-charts/test/machinaris",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.1.14",
@@ -380,7 +380,7 @@
                 "entertainment"
             ],
             "app_readme": "<h1>Plex</h1>\n<p>Plex chart is a chart designed to deploy plex in a TrueNAS SCALE kubernetes cluster.</p>",
-            "location": "/__w/charts/charts/test/plex",
+            "location": "/__w/truenas-charts/truenas-charts/test/plex",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.7.26",
@@ -395,7 +395,7 @@
                 "torrent"
             ],
             "app_readme": "<h1>Qbittorent</h1>\n<p><a href=\"https://qbittorrent.com/\">qbittorent</a> is a utorrent downloading client.</p>",
-            "location": "/__w/charts/charts/test/qbittorent",
+            "location": "/__w/truenas-charts/truenas-charts/test/qbittorent",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.9",
@@ -411,7 +411,7 @@
                 "productivity"
             ],
             "app_readme": "<h1>Collabora Online Development Edition</h1>\n<p>An awesome, Online Office suite image suitable for home use.\nWith the Collabora Online Development Edition (CODE) Docker Image you can host\nyour own online Office Suite at home! This Docker image is aimed at home users\nand contains the latest and greatest developments. Simply integrate it in your\npreferred File Sync and Share (FSS), to easily get your own online Office \nSuite up and running!</p>",
-            "location": "/__w/charts/charts/test/collabora",
+            "location": "/__w/truenas-charts/truenas-charts/test/collabora",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.2.6",
@@ -425,7 +425,7 @@
                 "storage"
             ],
             "app_readme": "<p><a href=\"https://ipfs.io\">IPFS</a> is a global, versioned, peer-to-peer filesystem. It combines good ideas from previous systems such Git, BitTorrent, Kademlia, SFS, and the Web. It is like a single bittorrent swarm, exchanging git objects. IPFS provides an interface as simple as the HTTP web, but with permanence built in. You can also mount the world at /ipfs.</p>",
-            "location": "/__w/charts/charts/test/ipfs",
+            "location": "/__w/truenas-charts/truenas-charts/test/ipfs",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.2.11",
@@ -440,7 +440,7 @@
                 "crypto"
             ],
             "app_readme": "<h1>Chia Network</h1>\n<p><a href=\"https://www.chia.net/\">CHIA</a> is a new blockchain and smart transaction platform that is easier to use, more efficient, and secure.</p>",
-            "location": "/__w/charts/charts/test/chia",
+            "location": "/__w/truenas-charts/truenas-charts/test/chia",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.3.38",
@@ -454,7 +454,7 @@
                 "generic"
             ],
             "app_readme": "<h1>iX-Chart</h1>\n<p>iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.\nIt provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.</p>",
-            "location": "/__w/charts/charts/test/ix-chart",
+            "location": "/__w/truenas-charts/truenas-charts/test/ix-chart",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "2212.0.1",
@@ -469,7 +469,7 @@
                 "storage"
             ],
             "app_readme": "<h1>Syncthing</h1>\n<p><a href=\"https://syncthing.net/\">syncthing</a> is a continuous file synchronization program. It synchronizes files between two or\nmore computers in real time, safely protected from prying eyes.</p>\n<blockquote>\n<p><strong>WARNING</strong> Do check out https://docs.syncthing.net/users/faq.html#what-things-are-synced to see what is synced.</p>\n</blockquote>",
-            "location": "/__w/charts/charts/test/syncthing",
+            "location": "/__w/truenas-charts/truenas-charts/test/syncthing",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.16",
@@ -485,7 +485,7 @@
                 "vpn"
             ],
             "app_readme": "<h1>WG-Easy</h1>\n<p><a href=\"https://github.com/WeeJeWel/wg-easy\">WG-Easy (WireGuard Easy)</a> is the easiest way to install &amp; manage WireGuard!</p>",
-            "location": "/__w/charts/charts/test/wg-easy",
+            "location": "/__w/truenas-charts/truenas-charts/test/wg-easy",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.0",
@@ -499,7 +499,7 @@
                 "media"
             ],
             "app_readme": "<h1>Photo Prism</h1>\n<p>PhotoPrism is a server-based application for browsing, organizing and sharing your personal photo collection.</p>",
-            "location": "/__w/charts/charts/test/photoprism",
+            "location": "/__w/truenas-charts/truenas-charts/test/photoprism",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.11",
@@ -513,7 +513,7 @@
                 "entertainment"
             ],
             "app_readme": "<h1>Emby Server</h1>\n<p>Emby Server is a personal media server with apps on just about every device</p>",
-            "location": "/__w/charts/charts/test/emby",
+            "location": "/__w/truenas-charts/truenas-charts/test/emby",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.16",
@@ -528,7 +528,7 @@
                 "dns"
             ],
             "app_readme": "<h1>Pihole</h1>\n<p>DNS and Ad-filtering for your network.</p>",
-            "location": "/__w/charts/charts/test/pihole",
+            "location": "/__w/truenas-charts/truenas-charts/test/pihole",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.12",
